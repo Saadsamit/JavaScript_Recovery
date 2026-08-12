@@ -2,34 +2,36 @@
 //Make your own examples using: string, number, boolean, array, object, null, undefined.
 
 // String
-const name = "samit";
+{
+  const name = "samit";
 
-console.log(`string= ${name}`);
+  console.log(`string= ${name}`);
 
-// number
-const age = 25;
+  // number
+  const age = 25;
 
-console.log(`number= ${age}`);
+  console.log(`number= ${age}`);
 
-// boolean
-const IsDev = true;
+  // boolean
+  const IsDev = true;
 
-console.log(`boolean= ${IsDev}`);
+  console.log(`boolean= ${IsDev}`);
 
-// array
-const array = [1, 2, 3, 4, 5, 6, 7, 8];
+  // array
+  const array = [1, 2, 3, 4, 5, 6, 7, 8];
 
-console.log(array);
+  console.log(array);
 
-// object
-const object = {
-  name,
-  age,
-  IsDev,
-  array,
-};
+  // object
+  const object = {
+    name,
+    age,
+    IsDev,
+    array,
+  };
 
-console.log(object);
+  console.log(object);
+}
 
 // 2. Functions — 20 minutes
 
@@ -149,8 +151,67 @@ const user = {
 // Task A — Destructuring
 // Extract name, email, and role using destructuring:
 
+const { name, email, role } = user;
+
+console.log(name, email, role);
+
 // Task B — Spread operator
 // Create a new object where role becomes "full-stack developer":
 
-// Task C — Explain
-// Explain why the original user object is not changed by the spread-based update.
+const updateUser = { ...user, role: "full-stack developer" };
+
+console.log(updateUser);
+
+/*
+Task C — Explain
+Explain why the original user object is not changed by the spread-based update.
+
+the original user object is not changed by the spread-based update because I 
+create a new object and change the value of new object. I did't touch the user
+object.
+*/
+
+// Async JavaScript — 30 minutes
+
+async function getUsers() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+  // console.log(data);
+  return data;
+}
+
+// Task A
+// Modify it to fetch the users, extract their names, and print the names.
+
+async function getNames() {
+  const users = await getUsers();
+  users?.forEach((item) => {
+    console.log(item.name);
+  });
+  return;
+}
+
+// getNames();
+
+// Task B
+// Add try/catch error handling around the asynchronous operation.
+
+async function handlingEror() {
+  try{
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await res.json()
+
+    const userNames = data?.map(item=>item.name)
+
+    console.log(userNames);
+
+  }catch(error){
+    console.error(error);
+  }
+  return
+}
+
+handlingEror()
+
+// Task C — Understand
+// Be able to explain fetch(), Promise, await, response.json(), and try/catch.
