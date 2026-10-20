@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product-filter</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Products</h1>
+        <div id="search-items">
+            <div>
+                <select name="category" id="category">
+                    <option value="default" selected>default</option>
+                    <option value="electronics">electronics</option>
+                    <option value="fashion">fashion</option>
+                </select>
+                <select name="sort" id="sort">
+                    <option value="default" selected>default</option>
+                    <option value="asc">low → high</option>
+                    <option value="desc">high → low</option>
+                </select>
+            </div>
+            <input name="search" type="search" id="search" placeholder="search">
+        </div>
+        <div class="card-container">
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
